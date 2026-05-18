@@ -47,9 +47,9 @@ export default function AboutPage() {
               deserves to be found online.
             </h1>
             <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              Fixed Online was built by a young entrepreneur who saw great
-              plumbers losing work simply because they weren&apos;t online.
-              He decided to fix that.
+              Fixed Online was built by a young entrepreneur who saw small
+              plumbing businesses losing work simply because they had no
+              online presence. He decided to fix that.
             </p>
           </motion.div>
 
@@ -93,9 +93,9 @@ export default function AboutPage() {
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
                   I started Fixed Online with one simple goal: to help
-                  hardworking plumbers compete in a world that&apos;s moved
-                  online. I kept seeing the same thing — skilled, reliable
-                  tradespeople losing jobs to competitors who had a basic
+                  small plumbing businesses compete in a world that&apos;s
+                  moved online. I kept seeing the same thing — skilled,
+                  reliable plumbers losing jobs to competitors with a basic
                   website, not because they were better, but simply because
                   they could be found.
                 </p>

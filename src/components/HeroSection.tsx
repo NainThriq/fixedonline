@@ -276,9 +276,9 @@ function NetworkHub() {
 // ─── Plumber card (bottom left) ──────────────────────────────────
 function PlumberCard() {
   const plumbers = [
-    { label: "J", name: "Jason M.", city: "Melbourne", color: "#1a3a6e" },
-    { label: "L", name: "Liam T.", city: "Sydney", color: "#0f766e" },
-    { label: "N", name: "Nathan R.", city: "Brisbane", color: "#1a3a6e" },
+    { label: "J", name: "Jason M.", city: "Local Plumber", color: "#1a3a6e" },
+    { label: "L", name: "Liam T.", city: "Local Plumber", color: "#0f766e" },
+    { label: "N", name: "Nathan R.", city: "Local Plumber", color: "#1a3a6e" },
   ];
   return (
     <motion.div
@@ -370,7 +370,7 @@ export default function HeroSection() {
               animate={{ opacity: [1, 0.3, 1] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             />
-            Websites for Australian Plumbers — Live in 48 Hours
+            Websites for Local Plumbers — Live in 48 Hours
           </span>
         </motion.div>
 
@@ -391,8 +391,8 @@ export default function HeroSection() {
           transition={{ delay: 2, duration: 0.7, ease }}
           className="text-base sm:text-lg text-slate-500 max-w-xl mx-auto leading-relaxed mb-8"
         >
-          Fixed Online builds professional, mobile-ready websites for plumbing businesses
-          across Australia. Get found on Google and start getting calls — no tech knowledge needed.
+          Fixed Online builds professional, mobile-ready websites for small plumbing businesses.
+          Get found on Google and start getting more calls — no tech knowledge needed.
         </motion.p>
 
         <motion.div

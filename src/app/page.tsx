@@ -7,9 +7,9 @@ import ReviewsCarousel from "@/components/ReviewsCarousel";
 import CtaBanner from "@/components/CtaBanner";
 
 export const metadata: Metadata = {
-  title: "Fixed Online — Websites for Australian Plumbers, Ready in 48 Hours",
+  title: "Fixed Online — Websites for Local Plumbers, Ready in 48 Hours",
   description:
-    "Fixed Online builds professional, mobile-ready websites for Australian plumbing businesses. Get your plumbing business found on Google in 48 hours. Serving Sydney, Melbourne, Brisbane, Perth & Adelaide.",
+    "Fixed Online builds professional, mobile-ready websites for small plumbing businesses. Get your plumbing business found on Google in 48 hours. No tech knowledge required.",
   alternates: {
     canonical: "https://getfixedonline.uk",
   },
