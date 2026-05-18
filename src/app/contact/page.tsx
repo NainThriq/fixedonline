@@ -8,8 +8,8 @@ const info = [
   {
     icon: "✉",
     label: "Email us",
-    value: "hello.fixedonline@gmail.com",
-    href: "mailto:hello.fixedonline@gmail.com",
+    value: "hello@getfixedonline.uk",
+    href: "mailto:hello@getfixedonline.uk",
   },
   {
     icon: "⏱",
