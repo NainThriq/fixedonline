@@ -1,10 +1,104 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
+
+// Animated network canvas for footer background
+function FooterNetwork() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let raf: number;
+    let w = canvas.offsetWidth;
+    let h = canvas.offsetHeight;
+    canvas.width = w;
+    canvas.height = h;
+
+    // Nodes
+    const nodes = Array.from({ length: 22 }, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
+      r: Math.random() * 2 + 1,
+      pulse: Math.random() * Math.PI * 2,
+    }));
+
+    function draw() {
+      if (!ctx || !canvas) return;
+      ctx.clearRect(0, 0, w, h);
+
+      nodes.forEach((n) => {
+        n.x += n.vx;
+        n.y += n.vy;
+        n.pulse += 0.02;
+        if (n.x < 0 || n.x > w) n.vx *= -1;
+        if (n.y < 0 || n.y > h) n.vy *= -1;
+      });
+
+      // Draw connections
+      nodes.forEach((a, i) => {
+        nodes.slice(i + 1).forEach((b) => {
+          const d = Math.hypot(b.x - a.x, b.y - a.y);
+          if (d < 110) {
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.strokeStyle = `rgba(27,158,140,${(1 - d / 110) * 0.18})`;
+            ctx.lineWidth = 0.7;
+            ctx.stroke();
+          }
+        });
+      });
+
+      // Draw nodes
+      nodes.forEach((n) => {
+        const pulse = Math.sin(n.pulse) * 0.5 + 0.5;
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r + pulse * 1.2, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(27,158,140,${0.25 + pulse * 0.2})`;
+        ctx.fill();
+      });
+
+      raf = requestAnimationFrame(draw);
+    }
+
+    draw();
+
+    const observer = new ResizeObserver(() => {
+      w = canvas.offsetWidth;
+      h = canvas.offsetHeight;
+      canvas.width = w;
+      canvas.height = h;
+    });
+    observer.observe(canvas);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      observer.disconnect();
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full pointer-events-none opacity-60"
+    />
+  );
+}
 
 export default function Footer() {
   return (
-    <footer className="bg-navy text-white">
-      <div className="max-w-6xl mx-auto px-6 py-12">
+    <footer className="relative bg-navy text-white overflow-hidden">
+      <FooterNetwork />
+
+      <div className="relative z-10 max-w-6xl mx-auto px-6 py-12">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
           <div>
             <Link href="/" className="inline-block bg-white rounded-xl px-3 py-2">
@@ -32,25 +126,15 @@ export default function Footer() {
           </div>
 
           <nav className="flex flex-col sm:flex-row gap-4 sm:gap-8">
-            <Link href="/" className="text-sm text-blue-200 hover:text-white transition-colors">
-              Home
-            </Link>
-            <Link href="/about" className="text-sm text-blue-200 hover:text-white transition-colors">
-              About
-            </Link>
-            <Link href="/contact" className="text-sm text-blue-200 hover:text-white transition-colors">
-              Contact
-            </Link>
+            <Link href="/" className="text-sm text-blue-200 hover:text-white transition-colors">Home</Link>
+            <Link href="/about" className="text-sm text-blue-200 hover:text-white transition-colors">About</Link>
+            <Link href="/contact" className="text-sm text-blue-200 hover:text-white transition-colors">Contact</Link>
           </nav>
         </div>
 
         <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-          <p className="text-xs text-blue-300">
-            © {new Date().getFullYear()} Fixed Online. All rights reserved.
-          </p>
-          <p className="text-xs text-blue-300">
-            Built for tradespeople who mean business.
-          </p>
+          <p className="text-xs text-blue-300">© {new Date().getFullYear()} Fixed Online. All rights reserved.</p>
+          <p className="text-xs text-blue-300">Built for tradespeople who mean business.</p>
         </div>
       </div>
     </footer>

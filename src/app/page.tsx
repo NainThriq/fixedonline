@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import HeroSection from "@/components/HeroSection";
 import FeaturesSection from "@/components/FeaturesSection";
+import StatsSection from "@/components/StatsSection";
 import PortfolioSection from "@/components/PortfolioSection";
+import GlobeSection from "@/components/GlobeSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import ReviewsCarousel from "@/components/ReviewsCarousel";
 import CtaBanner from "@/components/CtaBanner";
@@ -20,7 +22,9 @@ export default function Home() {
     <>
       <HeroSection />
       <FeaturesSection />
+      <StatsSection />
       <PortfolioSection />
+      <GlobeSection />
       <HowItWorksSection />
       <ReviewsCarousel />
       <CtaBanner />

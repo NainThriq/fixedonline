@@ -48,7 +48,16 @@ export default function HowItWorksSection() {
         </div>
 
         <div className="relative">
-          <div className="hidden lg:block absolute top-10 left-[12.5%] right-[12.5%] h-px bg-gray-100" />
+          {/* Animated connector line */}
+          <div className="hidden lg:block absolute top-[55px] left-[12.5%] right-[12.5%] h-px bg-gray-100 overflow-hidden">
+            <motion.div
+              className="h-full bg-teal origin-left"
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            />
+          </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {steps.map((step, i) => (
