@@ -58,11 +58,11 @@ function Background() {
       <div className="absolute top-28 left-[17%] w-[19%] h-[58%] rounded-3xl border border-dashed border-slate-200/50" />
       <div className="absolute top-28 right-[17%] w-[19%] h-[58%] rounded-3xl border border-dashed border-slate-200/50" />
 
-      {/* Floating mini-cards */}
+      {/* Top mini-cards — desktop only */}
       <motion.div
         initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2.2, duration: 0.6, ease }}
-        className="absolute top-28 left-[6%] bg-white rounded-xl shadow-sm border border-slate-100 px-3 py-2 flex items-center gap-2"
+        className="absolute top-28 left-[6%] bg-white rounded-xl shadow-sm border border-slate-100 px-3 py-2 items-center gap-2 hidden lg:flex"
       >
         <div className="w-6 h-6 rounded-lg bg-teal-light flex items-center justify-center shrink-0">
           <svg className="w-3.5 h-3.5 text-teal" fill="currentColor" viewBox="0 0 20 20">
@@ -78,7 +78,7 @@ function Background() {
       <motion.div
         initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2.5, duration: 0.6, ease }}
-        className="absolute top-28 right-[6%] bg-white rounded-xl shadow-sm border border-slate-100 px-3 py-2 flex items-center gap-2"
+        className="absolute top-28 right-[6%] bg-white rounded-xl shadow-sm border border-slate-100 px-3 py-2 items-center gap-2 hidden lg:flex"
       >
         <div className="w-6 h-6 rounded-lg bg-violet-50 flex items-center justify-center shrink-0">
           <svg className="w-3.5 h-3.5 text-violet-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -91,10 +91,11 @@ function Background() {
         </div>
       </motion.div>
 
+      {/* Bottom mini-cards — desktop only (mobile handled inline below hub) */}
       <motion.div
         initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 3.0, duration: 0.6, ease }}
-        className="absolute bottom-32 left-[4%] bg-white rounded-xl shadow-sm border border-slate-100 px-3 py-2 flex items-center gap-2"
+        className="absolute bottom-32 left-[4%] bg-white rounded-xl shadow-sm border border-slate-100 px-3 py-2 items-center gap-2 hidden lg:flex"
       >
         <div className="w-6 h-6 rounded-lg bg-amber-50 flex items-center justify-center shrink-0">
           <svg className="w-3.5 h-3.5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -110,7 +111,7 @@ function Background() {
       <motion.div
         initial={{ opacity: 0, x: 16 }} animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 3.2, duration: 0.6, ease }}
-        className="absolute bottom-32 right-[4%] bg-white rounded-xl shadow-sm border border-slate-100 px-3 py-2 flex items-center gap-2"
+        className="absolute bottom-32 right-[4%] bg-white rounded-xl shadow-sm border border-slate-100 px-3 py-2 items-center gap-2 hidden lg:flex"
       >
         <motion.div
           className="w-2 h-2 rounded-full bg-teal shrink-0"
@@ -394,9 +395,38 @@ export default function HeroSection() {
       </div>
 
       {/* ── Network Hub ── */}
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-5 pb-16 flex justify-center">
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-5 flex justify-center">
         <NetworkHub />
       </div>
+
+      {/* ── Mobile bottom cards (below hub) ── */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 3.0, duration: 0.6, ease }}
+        className="relative z-10 flex lg:hidden gap-3 justify-center pb-12 mt-4"
+      >
+        <div className="bg-white rounded-xl shadow-sm border border-slate-100 px-3 py-2 flex items-center gap-2">
+          <div className="w-6 h-6 rounded-lg bg-amber-50 flex items-center justify-center shrink-0">
+            <svg className="w-3.5 h-3.5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <div>
+            <div className="text-[10px] font-bold text-navy leading-none">Mobile Ready</div>
+            <div className="text-[8px] text-slate-400">All devices</div>
+          </div>
+        </div>
+
+        <div className="bg-white rounded-xl shadow-sm border border-slate-100 px-3 py-2 flex items-center gap-2">
+          <motion.div className="w-2 h-2 rounded-full bg-teal shrink-0"
+            animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
+            transition={{ duration: 1.8, repeat: Infinity }} />
+          <div>
+            <div className="text-[10px] font-bold text-navy leading-none">Site Live</div>
+            <div className="text-[8px] text-slate-400">48h delivery</div>
+          </div>
+        </div>
+      </motion.div>
     </section>
   );
 }
