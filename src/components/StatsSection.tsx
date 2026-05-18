@@ -5,7 +5,7 @@ import { motion, useInView, animate } from "framer-motion";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-function Counter({ to, suffix = "", prefix = "" }: { to: number; suffix?: string; prefix?: string }) {
+function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
   const [val, setVal] = useState(0);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
@@ -20,42 +20,14 @@ function Counter({ to, suffix = "", prefix = "" }: { to: number; suffix?: string
     return ctrl.stop;
   }, [inView, to]);
 
-  return (
-    <span ref={ref} className="tabular-nums">
-      {prefix}{val}{suffix}
-    </span>
-  );
+  return <span ref={ref} className="tabular-nums">{val}{suffix}</span>;
 }
 
 const stats = [
-  {
-    value: 48,
-    suffix: "h",
-    label: "Average Delivery",
-    desc: "From your first message to a live website",
-    color: "#1b9e8c",
-  },
-  {
-    value: 100,
-    suffix: "%",
-    label: "Done For You",
-    desc: "We handle everything — copy, design, hosting, domain",
-    color: "#1a3a6e",
-  },
-  {
-    value: 0,
-    suffix: "",
-    label: "Tech Knowledge Needed",
-    desc: "If you can use a phone, you can work with us",
-    color: "#7c3aed",
-  },
-  {
-    value: 5,
-    suffix: "★",
-    label: "Star Rated Service",
-    desc: "Real reviews from real plumbing businesses",
-    color: "#d97706",
-  },
+  { value: 48, suffix: "h", label: "Average Delivery", sub: "Fastest in the industry" },
+  { value: 100, suffix: "%", label: "Done For You", sub: "We handle everything" },
+  { value: 0, suffix: "", label: "Tech Knowledge\nNeeded", sub: "Zero learning curve" },
+  { value: 5, suffix: "★", label: "Star Rated", sub: "Real plumber reviews" },
 ];
 
 export default function StatsSection() {
@@ -63,52 +35,80 @@ export default function StatsSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="py-20 bg-white border-y border-slate-100">
-      <div className="max-w-6xl mx-auto px-5 sm:px-6">
+    <section
+      ref={ref}
+      className="relative overflow-hidden py-16 sm:py-20"
+      style={{ backgroundColor: "#07111e" }}
+    >
+      {/* Subtle teal gradient top */}
+      <div
+        className="absolute inset-x-0 top-0 h-px"
+        style={{ background: "linear-gradient(to right, transparent, #1b9e8c60, transparent)" }}
+      />
+      <div
+        className="absolute inset-x-0 bottom-0 h-px"
+        style={{ background: "linear-gradient(to right, transparent, #1b9e8c30, transparent)" }}
+      />
+      {/* Ambient glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 50% 80% at 50% 50%, rgba(27,158,140,0.06) 0%, transparent 70%)",
+        }}
+      />
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
+      <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-6">
+
+        {/* Label above */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease }}
-          className="text-center mb-14"
+          transition={{ duration: 0.5, ease }}
+          className="text-center text-xs font-bold uppercase tracking-[0.2em] text-teal mb-10"
         >
-          <h2 className="text-2xl sm:text-3xl font-black text-navy">
-            The numbers speak for themselves
-          </h2>
-        </motion.div>
+          The numbers speak for themselves
+        </motion.p>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Stats row */}
+        <div className="grid grid-cols-2 lg:grid-cols-4">
           {stats.map((s, i) => (
             <motion.div
               key={s.label}
-              initial={{ opacity: 0, y: 32, scale: 0.95 }}
-              animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
-              transition={{ delay: i * 0.1, duration: 0.7, ease }}
-              whileHover={{ y: -4, transition: { duration: 0.25 } }}
-              className="relative bg-slate-50 rounded-2xl p-6 border border-slate-100 overflow-hidden group"
+              initial={{ opacity: 0, y: 24 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: i * 0.1, duration: 0.65, ease }}
+              className="relative text-center px-6 py-6 group"
             >
-              {/* Gradient top bar */}
-              <div
-                className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl"
-                style={{ backgroundColor: s.color }}
-              />
+              {/* Vertical divider (not on first) */}
+              {i > 0 && (
+                <div className="absolute left-0 top-1/4 bottom-1/4 w-px bg-white/8 hidden lg:block" />
+              )}
+              {/* Mobile: horizontal divider for second row */}
+              {(i === 2) && (
+                <div className="absolute top-0 left-0 right-0 h-px bg-white/8 lg:hidden" />
+              )}
 
-              {/* Glow on hover */}
+              {/* Big number */}
               <div
-                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                style={{
-                  background: `radial-gradient(ellipse 80% 60% at 50% 0%, ${s.color}12 0%, transparent 70%)`,
-                }}
-              />
-
-              <div
-                className="text-4xl sm:text-5xl font-black mb-2"
-                style={{ color: s.color }}
+                className="text-5xl sm:text-6xl font-black leading-none mb-3"
+                style={{ color: "#1b9e8c" }}
               >
                 <Counter to={s.value} suffix={s.suffix} />
               </div>
-              <div className="text-sm font-bold text-navy mb-1">{s.label}</div>
-              <div className="text-xs text-slate-500 leading-relaxed">{s.desc}</div>
+
+              {/* Label */}
+              <div className="text-sm font-bold text-white mb-1 whitespace-pre-line leading-snug">
+                {s.label}
+              </div>
+
+              {/* Sub */}
+              <div className="text-xs text-slate-500">{s.sub}</div>
+
+              {/* Hover glow */}
+              <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{ background: "radial-gradient(ellipse 60% 60% at 50% 50%, rgba(27,158,140,0.07) 0%, transparent 70%)" }}
+              />
             </motion.div>
           ))}
         </div>
