@@ -343,7 +343,7 @@ export default function HeroSection() {
             <motion.span className="w-1.5 h-1.5 bg-teal rounded-full"
               animate={{ opacity: [1, 0.3, 1] }}
               transition={{ duration: 1.6, repeat: Infinity }} />
-            Websites for Local Plumbers — Live in 48 Hours
+            Built exclusively for plumbers
           </span>
         </motion.div>
 
@@ -353,8 +353,8 @@ export default function HeroSection() {
           className="text-4xl sm:text-5xl lg:text-[3.5rem] font-black leading-[1.1] tracking-tight mb-5"
           style={{ color: "#0f172a" }}
         >
-          We Build Websites.<br />
-          <span style={{ color: "#1b9e8c" }}>You Fix Pipes.</span>
+          Look Like the Best<br />
+          <span style={{ color: "#1b9e8c" }}>Plumber in Town.</span>
         </motion.h1>
 
         <motion.p
@@ -362,8 +362,8 @@ export default function HeroSection() {
           transition={{ delay: 0.35, duration: 0.6, ease }}
           className="text-slate-500 text-base sm:text-lg max-w-lg mx-auto leading-relaxed mb-8"
         >
-          Fixed Online builds professional, mobile-ready websites for small plumbing
-          businesses. Get found on Google and start getting more calls — no tech knowledge needed.
+          We build done-for-you websites exclusively for plumbers — SEO included, live in 48 hours.
+          No tech knowledge, no back-and-forth. Just a professional website that makes customers trust you before they even call.
         </motion.p>
 
         <motion.div

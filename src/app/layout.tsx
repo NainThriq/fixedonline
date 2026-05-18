@@ -12,11 +12,11 @@ const geistSans = Geist({
 export const metadata: Metadata = {
   metadataBase: new URL("https://getfixedonline.uk"),
   title: {
-    default: "Fixed Online — Professional Websites for Local Plumbers",
+    default: "Fixed Online — Look Like the Best Plumber in Town",
     template: "%s | Fixed Online",
   },
   description:
-    "Fixed Online builds professional, mobile-ready websites for small plumbing businesses. Get online in 48 hours. No tech knowledge required.",
+    "Fixed Online builds done-for-you websites exclusively for plumbers — SEO included, live in 48 hours. No tech knowledge, no hassle. Look professional, get trusted, get called.",
   keywords: [
     "plumber website",
     "plumbing business website",
