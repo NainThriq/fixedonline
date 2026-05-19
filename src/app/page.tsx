@@ -21,11 +21,11 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <HowItWorksSection />
       <FeaturesSection />
-      <StatsSection />
       <PortfolioSection />
       <GlobeSection />
-      <HowItWorksSection />
+      <StatsSection />
       <ReviewsCarousel />
       <CtaBanner />
     </>

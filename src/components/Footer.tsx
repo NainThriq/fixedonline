@@ -45,9 +45,9 @@ const navLinks = [
 ];
 
 const services = [
-  { label: "Website Design", href: "/contact" },
-  { label: "Local SEO", href: "/contact" },
-  { label: "48h Delivery", href: "/contact" },
+  { label: "Website Design", href: "/#our-work" },
+  { label: "Local SEO", href: "/#how-it-works" },
+  { label: "48h Delivery", href: "/#how-it-works" },
   { label: "Free Quote", href: "/contact" },
 ];
 
@@ -145,7 +145,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-blue-300/70">© {new Date().getFullYear()} Get Fixed Online. All rights reserved.</p>
+          <p className="text-xs text-blue-300/70">© {new Date().getFullYear()} Get Fixed Online. All rights reserved. · <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a></p>
           <div className="flex items-center gap-4">
             <span className="text-xs text-blue-300/70">Built exclusively for plumbers</span>
             <span className="text-blue-300/30">·</span>

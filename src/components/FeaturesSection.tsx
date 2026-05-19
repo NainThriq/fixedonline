@@ -67,9 +67,9 @@ export default function FeaturesSection() {
             initial={{ opacity: 0, y: 32, clipPath: "inset(100% 0 0 0)" }}
             animate={inView ? { opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)" } : {}}
             transition={{ duration: 0.75, ease }}
-            className="text-2xl sm:text-4xl font-black text-navy"
+            className="text-2xl sm:text-4xl font-black text-navy [text-wrap:balance]"
           >
-            Everything your business needs online
+            What you get when you go with Fixed Online
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
@@ -77,7 +77,7 @@ export default function FeaturesSection() {
             transition={{ delay: 0.18, duration: 0.6, ease }}
             className="mt-3 text-slate-500 max-w-xl mx-auto"
           >
-            We handle the whole thing. You stay focused on the jobs that matter.
+            Every plumber website we build is designed to do one thing: get your phone ringing.
           </motion.p>
         </div>
 

@@ -12,11 +12,11 @@ const geistSans = Geist({
 export const metadata: Metadata = {
   metadataBase: new URL("https://getfixedonline.uk"),
   title: {
-    default: "Fixed Online — Look Like the Best Plumber in Town",
+    default: "Fixed Online — Plumber Websites Built in 48 Hours",
     template: "%s | Fixed Online",
   },
   description:
-    "Fixed Online builds done-for-you websites exclusively for plumbers — SEO included, live in 48 hours. No tech knowledge, no hassle. Look professional, get trusted, get called.",
+    "Fixed Online builds done-for-you websites exclusively for plumbers — SEO included, live in 48 hours. Professional, mobile-ready, zero tech knowledge needed. Get found on Google and start getting more calls.",
   keywords: [
     "plumber website",
     "plumbing business website",
@@ -81,24 +81,89 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
+        {/* ProfessionalService + Organization schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "ProfessionalService",
-              name: "Fixed Online",
+              "@type": ["ProfessionalService", "Organization"],
+              "@id": "https://getfixedonline.uk/#organization",
+              name: "Get Fixed Online",
+              alternateName: "Fixed Online",
               url: "https://getfixedonline.uk",
-              logo: "https://getfixedonline.uk/logo.jpeg",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://getfixedonline.uk/logo.jpeg",
+                width: 300,
+                height: 300,
+              },
               description:
-                "Fixed Online builds professional, mobile-ready websites for small plumbing businesses in 48 hours.",
+                "Fixed Online builds professional, mobile-ready websites exclusively for plumbing businesses — SEO included, live in 48 hours. No tech knowledge required.",
               email: "hello@getfixedonline.uk",
+              address: {
+                "@type": "PostalAddress",
+                addressCountry: "GB",
+              },
+              areaServed: [
+                { "@type": "Country", name: "United Kingdom" },
+                { "@type": "Country", name: "Australia" },
+                { "@type": "Country", name: "United States" },
+              ],
               serviceType: "Web Design for Plumbers",
               priceRange: "$$",
+              openingHoursSpecification: {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                opens: "09:00",
+                closes: "18:00",
+              },
+              sameAs: ["https://www.instagram.com/getfixedonline"],
+              founder: {
+                "@type": "Person",
+                "@id": "https://getfixedonline.uk/about#founder",
+                name: "Hasnain Raza",
+              },
               offers: {
                 "@type": "Offer",
+                name: "Professional Plumber Website",
                 description:
-                  "Professional plumber website built and live in 48 hours",
+                  "Done-for-you professional website for plumbing businesses, built and live within 48 hours. Includes SEO, copywriting, hosting setup, and domain connection.",
+                url: "https://getfixedonline.uk/contact",
+                priceCurrency: "GBP",
+                availability: "https://schema.org/InStock",
+                seller: { "@id": "https://getfixedonline.uk/#organization" },
+              },
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: "4.95",
+                bestRating: "5",
+                worstRating: "1",
+                ratingCount: "15",
+                reviewCount: "15",
+              },
+            }),
+          }}
+        />
+        {/* WebSite schema for sitelinks searchbox + entity disambiguation */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "@id": "https://getfixedonline.uk/#website",
+              name: "Fixed Online",
+              url: "https://getfixedonline.uk",
+              description: "Professional websites built exclusively for plumbers — SEO included, live in 48 hours.",
+              publisher: { "@id": "https://getfixedonline.uk/#organization" },
+              potentialAction: {
+                "@type": "SearchAction",
+                target: {
+                  "@type": "EntryPoint",
+                  urlTemplate: "https://getfixedonline.uk/?q={search_term_string}",
+                },
+                "query-input": "required name=search_term_string",
               },
             }),
           }}

@@ -39,11 +39,11 @@ export default function HowItWorksSection() {
     <section id="how-it-works" className="bg-surface py-20 sm:py-24">
       <div className="max-w-6xl mx-auto px-5 sm:px-6">
         <div className="text-center mb-14">
-          <h2 className="text-3xl sm:text-4xl font-bold text-navy">
-            How it works
+          <h2 className="text-3xl sm:text-4xl font-bold text-navy [text-wrap:balance]">
+            Your website. Live in 48 hours.
           </h2>
           <p className="mt-4 text-gray-600 max-w-xl mx-auto text-sm sm:text-base">
-            Four simple steps. No jargon, no back-and-forth, no waiting around.
+            Here&apos;s exactly what happens after you reach out — no surprises, no delays.
           </p>
         </div>
 

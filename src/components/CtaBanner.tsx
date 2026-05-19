@@ -57,9 +57,9 @@ export default function CtaBanner() {
           initial={{ opacity: 0, y: 20, clipPath: "inset(100% 0 0 0)" }}
           animate={inView ? { opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)" } : {}}
           transition={{ delay: 0.1, duration: 0.7, ease }}
-          className="text-3xl sm:text-4xl font-bold text-white leading-tight"
+          className="text-3xl sm:text-4xl font-bold text-white leading-tight [text-wrap:balance]"
         >
-          Ready to grow your plumbing business?
+          Your website could be live by tomorrow.
         </motion.h2>
 
         <motion.p
@@ -68,8 +68,7 @@ export default function CtaBanner() {
           transition={{ delay: 0.3, duration: 0.6 }}
           className="mt-4 text-white/80 text-lg max-w-xl mx-auto"
         >
-          Join the plumbers already winning more jobs online. Get in touch today
-          and we&apos;ll have your site live within 48 hours.
+          Join 200+ plumbers already winning more jobs online. We build your site in 48 hours — professional, SEO-ready, done entirely for you.
         </motion.p>
 
         <motion.div
@@ -78,16 +77,16 @@ export default function CtaBanner() {
           transition={{ delay: 0.45, duration: 0.6, ease }}
           className="mt-8 flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.96 }}>
             <Link href="/contact"
-              className="inline-block bg-white hover:bg-gray-50 text-teal font-semibold px-8 py-4 rounded-xl transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 text-base">
-              Get Your Free Website
+              className="inline-block bg-white hover:bg-gray-50 text-teal font-semibold px-8 py-4 rounded-xl transition-[background-color,box-shadow,transform] duration-200 hover:shadow-lg hover:-translate-y-0.5 text-base">
+              Get My Free Website Quote
             </Link>
           </motion.div>
           <motion.div whileHover={{ scale: 1.02 }}>
-            <Link href="/about"
-              className="inline-block border-2 border-white/40 hover:border-white text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200 text-base">
-              Learn More About Us
+            <Link href="#how-it-works"
+              className="inline-block border-2 border-white/40 hover:border-white text-white font-semibold px-8 py-4 rounded-xl transition-[border-color] duration-200 text-base">
+              See How It Works
             </Link>
           </motion.div>
         </motion.div>

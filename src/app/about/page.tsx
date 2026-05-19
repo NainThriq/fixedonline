@@ -73,10 +73,10 @@ export default function AboutPage() {
               />
               Our Story
             </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-navy leading-[1.08] tracking-tight">
-              We believe every plumber
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-navy leading-[1.08] tracking-tight [text-wrap:balance]">
+              The agency built exclusively
               <br />
-              <span className="text-teal">deserves to be found online.</span>
+              <span className="text-teal">for plumbers who want more calls.</span>
             </h1>
             <p className="mt-6 text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
               Fixed Online was built to level the playing field for small plumbing businesses

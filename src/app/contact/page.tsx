@@ -48,13 +48,11 @@ export default function ContactPage() {
             <span className="inline-flex items-center gap-2 bg-teal-light text-teal text-xs font-semibold px-3 py-1.5 rounded-full mb-4">
               Get In Touch
             </span>
-            <h1 className="text-4xl sm:text-5xl font-bold text-navy">
-              Let&apos;s get you online
+            <h1 className="text-4xl sm:text-5xl font-bold text-navy [text-wrap:balance]">
+              Get your plumbing website built in 48 hours
             </h1>
             <p className="mt-4 text-lg text-gray-600 max-w-xl mx-auto">
-              Fill in the form and we&apos;ll get back to you within a few
-              hours. No hard sell, no obligation — just a chat about your
-              website.
+              Tell us about your business and we&apos;ll get back to you within a few hours. No hard sell, no obligation — just a straight answer about what we can build for you.
             </p>
           </motion.div>
 
@@ -102,10 +100,16 @@ export default function ContactPage() {
                 </div>
               ))}
 
+              <div className="bg-navy/5 rounded-2xl p-5 text-sm text-slate-600">
+                <p className="font-semibold text-navy mb-2">Trusted by 200+ plumbing businesses</p>
+                <p>We&apos;ve built websites for plumbers across the UK, US and Australia. Every site is professional, mobile-ready, and optimised for Google from day one. You don&apos;t need to prepare anything — just tell us your business name and service area and we handle the rest.</p>
+                <p className="mt-3 text-xs text-slate-400">We never share your details. Read our <a href="/privacy" className="text-teal hover:underline">privacy policy</a>.</p>
+              </div>
+
               <div className="bg-teal rounded-2xl p-6 text-white">
-                <div className="text-lg font-bold mb-2">
+                <h2 className="text-lg font-bold mb-2">
                   What happens next?
-                </div>
+                </h2>
                 <ol className="space-y-2">
                   {[
                     "We review your message",
